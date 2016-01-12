@@ -16,7 +16,6 @@ mkdir -p "${tmp_dir}"
   wget -q -P "${tmp_dir}/" "${pe_url}/${pe_ver}/${filename}.tar.gz"
 }
 
-
 [ -d "${tmp_dir}/${filename}" ] ||
 {
   echo Extracting "${filename}.tar.gz..."
@@ -28,5 +27,17 @@ mkdir -p "${tmp_dir}"
   echo Installing Puppet Enterprise...
   "${tmp_dir}/${filename}/puppet-enterprise-installer" -a \
   "${script_dir}/centos7pe_answers.txt"
+}
+
+which gem >/dev/null 2>&1 || {
+  echo Installing rubygems...
+  yum -y install rubygems
+}
+
+which fpm >/dev/null 2>&1 || {
+  echo Installing dev tools...
+  yum -y install ruby-devel gcc
+  echo Installing fpm...
+  gem install fpm
 }
 
