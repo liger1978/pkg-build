@@ -21,18 +21,14 @@ package:
 	-n $(PKG_NAME) \
 	-v $(VERSION) \
 	-a $(ARCH) \
-	-C $(SRC_NAME)-$(VERSION) \
+	-C $(SRC_NAME)-$(VERSION)/lib/mcollective \
 	-m "$(PACKAGER)" \
 	--url "$(URL)" \
 	--description "$(DESCRIPTION)" \
 	--prefix $(PE_ROOT)/libexec/mcollective/mcollective \
 	--depends 'ruby > 1.9' \
 	agent \
-	aggregate \
-	application \
-	data \
-	util \
-	validator
+	application
 	rm -f $(VERSION).tar.gz
 	rm -rf $(SRC_NAME)-$(VERSION)
 	

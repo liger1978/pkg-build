@@ -41,3 +41,7 @@ which fpm >/dev/null 2>&1 || {
   gem install fpm
 }
 
+which rpmbuild >/dev/null 2>&1 || {
+  echo Installing rpm-build... 
+  yum -y install rpm-build
+}
