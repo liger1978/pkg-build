@@ -10,8 +10,9 @@ PE_ROOT=/opt/puppet
 
 .PHONY: package
 package:
-	rm -rf $(VERSION).tar.gz
-	rm -rf *.rpm
+	rm -f $(VERSION).tar.gz
+	rm -rf $(SRC_NAME)-$(VERSION)
+	rm -f *.rpm
 	wget $(URL)/archive/$(VERSION).tar.gz
 	tar xzf $(VERSION).tar.gz
 	fpm \
@@ -32,3 +33,6 @@ package:
 	data \
 	util \
 	validator
+	rm -f $(VERSION).tar.gz
+	rm -rf $(SRC_NAME)-$(VERSION)
+	
