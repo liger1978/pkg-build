@@ -8,7 +8,7 @@ PE_GEM_VERSION=1.9.1
 
 .PHONY: package
 package:
-	rm -rf *.rpm
+	rm -f *.rpm
 	fpm \
 	--verbose \
 	-s gem \
