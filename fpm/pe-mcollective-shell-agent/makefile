@@ -26,7 +26,7 @@ package:
 	--url "$(URL)" \
 	--description "$(DESCRIPTION)" \
 	--prefix $(PE_ROOT)/libexec/mcollective/mcollective \
-	--depends 'ruby > 1.9' \
+	--depends 'ruby' \
 	agent \
 	application
 	rm -f $(VERSION).tar.gz
