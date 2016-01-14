@@ -1,0 +1,4 @@
+# Ensure platform is supported:
+
+# Supported platforms to check against: let's make a list!
+supported_platforms="el-4-i386 el-4-x86_64 el-5-i386 el-5-x86_64 el-6-i386 el-6-x86_64 el-7-x86_64 sles-10-i386 sles-10-x86_64 sles-11-i386 sles-11-x86_64 sles-12-x86_64 debian-6-i386 debian-6-amd64 debian-7-i386 debian-7-amd64 ubuntu-10.04-i386 ubuntu-10.04-amd64 ubuntu-12.04-i386 ubuntu-12.04-amd64 ubuntu-14.04-i386 ubuntu-14.04-amd64 cumulus-1.5-powerpc cumulus-2.2-amd64 aix-5.3-power aix-6.1-power aix-7.1-power solaris-10-i386 solaris-10-sparc solaris-11-i386 solaris-11-sparc eos-4-i386 osx-10.9-x86_64"
