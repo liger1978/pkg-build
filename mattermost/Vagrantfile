@@ -1,0 +1,14 @@
+Vagrant.configure(2) do |config|
+
+  config.vm.define "el7" do |el7|
+    el7.vm.box = "puppetlabs/centos-7.0-64-puppet"
+    el7.vm.hostname = "el7.box"
+    el7.vm.synced_folder "~/", "/hosthome"
+    el7.vm.provision :shell, path: "el7/bootstrap.sh"
+    el7.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "puppet/environments"
+      puppet.environment = "vagrant"
+    end
+  end
+  
+end
