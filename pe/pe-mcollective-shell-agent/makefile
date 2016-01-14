@@ -2,6 +2,7 @@
 SRC_NAME=mcollective-shell-agent
 PKG_NAME=pe-mcollective-shell-agent
 VERSION=0.0.2
+RELEASE=2
 ARCH=noarch
 DESCRIPTION=Shell agent for Puppet Enterprise mcollective.
 URL=https://github.com/puppetlabs/$(SRC_NAME)
@@ -20,13 +21,13 @@ package:
 	-t rpm \
 	-n $(PKG_NAME) \
 	-v $(VERSION) \
+        --iteration $(RELEASE) \
 	-a $(ARCH) \
 	-C $(SRC_NAME)-$(VERSION)/lib/mcollective \
 	-m "$(PACKAGER)" \
 	--url "$(URL)" \
 	--description "$(DESCRIPTION)" \
 	--prefix $(PE_ROOT)/libexec/mcollective/mcollective \
-	--depends 'ruby' \
 	agent \
 	application
 	rm -f $(VERSION).tar.gz

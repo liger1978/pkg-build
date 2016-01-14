@@ -1,6 +1,6 @@
 #!/bin/bash
-script_dir='/vagrant/scripts'
-tmp_dir='/vagrant/tmp'
+script_dir='/vagrant'
+tmp_dir='/vagrant/.tmp'
 pe_url='https://s3.amazonaws.com/pe-builds/released'
 pe_ver='3.8.3'
 os_fam='el'
@@ -26,7 +26,7 @@ mkdir -p "${tmp_dir}"
 {
   echo Installing Puppet Enterprise...
   "${tmp_dir}/${filename}/puppet-enterprise-installer" -a \
-  "${script_dir}/centos7pe_answers.txt"
+  "${script_dir}/pe_answers"
 }
 
 which gem >/dev/null 2>&1 || {
@@ -45,3 +45,9 @@ which rpmbuild >/dev/null 2>&1 || {
   echo Installing rpm-build... 
   yum -y install rpm-build
 }
+
+for i in $(find ${script_dir}/* -type d)
+do
+    cd $i
+    make
+done
