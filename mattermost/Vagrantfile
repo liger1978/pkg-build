@@ -1,10 +1,29 @@
 Vagrant.configure(2) do |config|
-
+  
+  config.vm.define "debian8" do |debian8|
+    debian8.vm.box = "puppetlabs/debian-8.2-64-puppet"
+    debian8.vm.hostname = "debian8.box"
+    debian8.vm.provision :shell, path: "bootstrap.sh"
+    debian8.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "puppet/environments"
+      puppet.environment = "vagrant"
+    end
+  end
+  
+  config.vm.define "el6" do |el6|
+    el6.vm.box = "puppetlabs/centos-6.6-64-puppet"
+    el6.vm.hostname = "el6.box"
+    el6.vm.provision :shell, path: "bootstrap.sh"
+    el6.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "puppet/environments"
+      puppet.environment = "vagrant"
+    end
+  end
+  
   config.vm.define "el7" do |el7|
     el7.vm.box = "puppetlabs/centos-7.0-64-puppet"
     el7.vm.hostname = "el7.box"
-    el7.vm.synced_folder "~/", "/hosthome"
-    el7.vm.provision :shell, path: "el7/bootstrap.sh"
+    el7.vm.provision :shell, path: "bootstrap.sh"
     el7.vm.provision "puppet" do |puppet|
       puppet.environment_path = "puppet/environments"
       puppet.environment = "vagrant"
