@@ -16,6 +16,7 @@ PROVIDES=php-pecl(oci8)
 LIB=/usr/lib64/php/modules/oci8.so
 CONF=/etc/php.d/oci8.ini
 META=/var/lib/pear/pkgxml/php-pecl-oci8.xml
+URL=https://pecl.php.net/package/oci8
 
 # Package oracle-ldconfig-shim
 RELEASE2=1.el7
@@ -32,6 +33,7 @@ package:
 	--description "$(DESCRIPTION1)" \
 	--license "$(LICENSE)" \
 	-m "$(PACKAGER)" \
+	--url "$(URL)" \
 	-d $(DEPEND1) \
 	-d $(DEPEND2) \
 	-d $(DEPEND3) \
