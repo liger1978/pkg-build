@@ -4,7 +4,7 @@ ARCH=x86_64
 PKG_NAME1=php-pecl-oci8
 DESCRIPTION1=Use the OCI8 extension to access Oracle Database
 VERSION=2.0.10
-RELEASE1=2.el7
+RELEASE1=3.el7
 LICENSE=PHP
 PACKAGER=grainger@gmail.com
 DEPEND1=oracle-instantclient11.2-basic
@@ -15,6 +15,7 @@ DEPEND5=/usr/bin/pecl
 PROVIDES=php-pecl(oci8)
 LIB=/usr/lib64/php/modules/oci8.so
 CONF=/etc/php.d/oci8.ini
+DOC=/usr/share/doc/pecl/oci8
 META=/var/lib/pear/pkgxml/php-pecl-oci8.xml
 URL=https://pecl.php.net/package/oci8
 
@@ -42,7 +43,7 @@ package:
 	--provides "$(PROVIDES)" \
 	--iteration $(RELEASE1) \
 	--config-files $(CONF) \
-	$(LIB) $(CONF) $(META)
+	$(LIB) $(CONF) $(DOC) $(META)
 
 	rm -rf /tmp/fpm/
 	mkdir -p /tmp/fpm/etc/ld.so.conf.d/

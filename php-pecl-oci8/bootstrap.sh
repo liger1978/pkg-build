@@ -44,13 +44,21 @@ which pecl >/dev/null 2>&1 || {
   echo Unzipping oci8 PHP module...
   tar xfz oci8-2.0.10.tgz > /dev/null
   mkdir -p /var/lib/pear/pkgxml/ > /dev/null
+  echo Installing oci8 metadata...
   cp package.xml /var/lib/pear/pkgxml/php-pecl-oci8.xml
   cd oci8-2.0.10 > /dev/null
+  echo Installing oci8 docs...
+  mkdir -p /usr/share/doc/pecl/oci8 > /dev/null
+  cp CREDITS /usr/share/doc/pecl/oci8
+  cp LICENSE /usr/share/doc/pecl/oci8
+  cp README /usr/share/doc/pecl/oci8
   echo Building oci8 PHP module...
   phpize > /dev/null
   ./configure --with-oci8=shared,instantclient,/usr/lib/oracle/11.2/client64/lib/ > /dev/null
   make > /dev/null
+  echo Installing oci8 PHP module...
   make install > /dev/null
+  echo Creating oci8 PHP config...
   cat >/etc/php.d/oci8.ini <<EOL
 [OCI8]
 extension=oci8.so
