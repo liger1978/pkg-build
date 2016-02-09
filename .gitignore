@@ -8,3 +8,4 @@ puppet/environments/vagrant/modules/*
 !puppet/environments/vagrant/modules/my_fw
 tmp/
 .tmp/
+*.stackdump
