@@ -46,8 +46,5 @@ which rpmbuild >/dev/null 2>&1 || {
   yum -y install rpm-build
 }
 
-for i in $(find ${script_dir}/* -type d)
-do
-    cd $i
-    make
-done
+cd "${script_dir}"
+make
