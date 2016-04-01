@@ -1,6 +1,6 @@
 # Package packer for el7.
 PKG_NAME=packer
-VERSION=0.8.6
+VERSION=0.10.0
 RELEASE=1.el7
 ARCH=x86_64
 DESCRIPTION=Packer automates the creation of any type of machine image
