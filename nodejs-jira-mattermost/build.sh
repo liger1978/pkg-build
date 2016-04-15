@@ -3,7 +3,7 @@
 cd /vagrant
 SRC_PKG_NAME='jira-mattermost'
 PKG_NAME="nodejs-${SRC_PKG_NAME}"
-RELEASE='1.el7'
+RELEASE='2.el7'
 ARCH='x86_64'
 DESCRIPTION='A webhook translator for JIRA to Mattermost'
 VENDOR='vrenjith'
@@ -26,7 +26,7 @@ EnvironmentFile=/etc/sysconfig/${PKG_NAME}
 Type=simple
 WorkingDirectory=/usr/lib/node_modules/${SRC_PKG_NAME}
 ExecStart=/bin/npm start
-PIDFile=/var/spool${PKG_NAME}/pid/master.pid
+PIDFile=/var/spool/${PKG_NAME}/pid/master.pid
 User=nobody
 Group=nobody
 
