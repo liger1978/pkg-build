@@ -1,6 +1,7 @@
 .vagrant*
 *.rpm
 *.tar.gz
+*.zip
 *.deb
 puppet/environments/vagrant/modules/*
 !puppet/environments/vagrant/modules/profile
