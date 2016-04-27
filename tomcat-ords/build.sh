@@ -3,7 +3,7 @@
 cd /vagrant
 PKG_NAME="tomcat-ords"
 VERSION=$(find ./ -name 'ords*.zip' | cut -d "." -f 3,4,5)
-RELEASE='2.el7'
+RELEASE='4.el7'
 ARCH='x86_64'
 DESCRIPTION='Oracle REST Data Services for Apache Tomcat'
 VENDOR='Oracle'
@@ -11,7 +11,8 @@ LICENSE='Proprietary'
 URL='http://www.oracle.com/technetwork/developer-tools/rest-data-services/overview/index.html'
 PACKAGER='grainger@gmail.com'
 DEPEND1='java >= 1:1.7.0'
-DEPEND2='shadow-utils'
+DEPEND2='tomcat >= 8'
+DEPEND3='shadow-utils'
 TARGET_DIR='/opt/tomcat/webapps'
 CONF_DIR='/etc/ords'
 BUILD_DIR='/tmp/rpmbuild'
@@ -85,5 +86,7 @@ fpm \
 --after-install "${BUILD_DIR}/post-script.sh" \
 --depends "${DEPEND1}" \
 --depends "${DEPEND2}" \
+--depends "${DEPEND3}" \
+--config-files "${TARGET_DIR}/params/ords_params.properties" \
 "${TARGET_DIR}" \
 "${CONF_DIR}"

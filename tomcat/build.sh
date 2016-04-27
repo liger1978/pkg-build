@@ -5,7 +5,7 @@ PKG_NAME='tomcat'
 VERSION='8.0.33'
 MAJ_VERSION=$(echo $VERSION | cut -d '.' -f 1)
 DOWNLOAD="http://www-us.apache.org/dist/tomcat/tomcat-${MAJ_VERSION}/v${VERSION}/bin/apache-tomcat-${VERSION}.tar.gz"
-RELEASE='1.el7'
+RELEASE='2.el7'
 ARCH='x86_64'
 DESCRIPTION='Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 Tomcat is the servlet container that is used in the official Reference
@@ -104,6 +104,8 @@ fpm \
 --depends "${DEPEND2}" \
 --provides "${PROVIDES1}" \
 --provides "${PROVIDES2}" \
+--config-files "/etc/sysconfig/${PKG_NAME}" \
+--config-files "${TARGET_DIR}/${PKG_NAME}/conf" \
 "${TARGET_DIR}/${PKG_NAME}" \
 "/etc/sysconfig/${PKG_NAME}" \
 "/lib/systemd/system/${PKG_NAME}.service"
