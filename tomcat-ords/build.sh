@@ -27,14 +27,12 @@ rm -rf "${CONF_DIR}"
 
 mkdir -p "${BUILD_DIR}"
 mkdir -p "${TARGET_DIR}/params"
-#mkdir -p "${TARGET_DIR}/i"
 mkdir -p "${CONF_DIR}"
 
 \cp ./src/apex*.zip "${BUILD_DIR}"
 \cp ./src/ords*.zip "${BUILD_DIR}"
 unzip "${BUILD_DIR}/ords*.zip" -d "${BUILD_DIR}"
 \cp "${BUILD_DIR}/ords.war" "${TARGET_DIR}"
-#tar xzf "${BUILD_DIR}/images.tar.gz" -C "${TARGET_DIR}/i"
 unzip "${BUILD_DIR}/apex*.zip" -d "${BUILD_DIR}"
 mv "${BUILD_DIR}/apex/images" "${TARGET_DIR}/i"
 
