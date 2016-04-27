@@ -3,7 +3,7 @@
 cd /vagrant
 PKG_NAME="tomcat-ords"
 VERSION=$(find ./ -name 'ords*.zip' | cut -d "." -f 3,4,5)
-RELEASE='4.el7'
+RELEASE='5.el7'
 ARCH='x86_64'
 DESCRIPTION='Oracle REST Data Services for Apache Tomcat'
 VENDOR='Oracle'
@@ -27,14 +27,16 @@ rm -rf "${CONF_DIR}"
 
 mkdir -p "${BUILD_DIR}"
 mkdir -p "${TARGET_DIR}/params"
-mkdir -p "${TARGET_DIR}/i"
+#mkdir -p "${TARGET_DIR}/i"
 mkdir -p "${CONF_DIR}"
 
-\cp ./src/images.tar.gz "${BUILD_DIR}"
+\cp ./src/apex*.zip "${BUILD_DIR}"
 \cp ./src/ords*.zip "${BUILD_DIR}"
 unzip "${BUILD_DIR}/ords*.zip" -d "${BUILD_DIR}"
 \cp "${BUILD_DIR}/ords.war" "${TARGET_DIR}"
-tar xzf "${BUILD_DIR}/images.tar.gz" -C "${TARGET_DIR}/i"
+#tar xzf "${BUILD_DIR}/images.tar.gz" -C "${TARGET_DIR}/i"
+unzip "${BUILD_DIR}/apex*.zip" -d "${BUILD_DIR}"
+mv "${BUILD_DIR}/apex/images" "${TARGET_DIR}/i"
 
 cat << EOF > "${TARGET_DIR}/params/ords_params.properties"
 db.hostname=localhost
