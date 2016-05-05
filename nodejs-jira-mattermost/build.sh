@@ -3,12 +3,12 @@
 cd /vagrant
 SRC_PKG_NAME='jira-mattermost'
 PKG_NAME="nodejs-${SRC_PKG_NAME}"
-RELEASE='2.el7'
+RELEASE='3.el7'
 ARCH='x86_64'
 DESCRIPTION='A webhook translator for JIRA to Mattermost'
 VENDOR='vrenjith'
 LICENSE='Unknown'
-URL='https://github.com/vrenjith/jira-matter-bridge'
+URL='https://github.com/liger78/jira-matter-bridge'
 DOWNLOAD='vrenjith/jira-matter-bridge'
 PACKAGER='grainger@gmail.com'
 DEPEND1='nodejs > 5'
