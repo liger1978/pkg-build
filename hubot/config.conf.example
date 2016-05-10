@@ -1,0 +1,8 @@
+INSTALL_DIR='/opt'
+PKG_NAME_SUFFIX='bigcorp'
+PACKAGER='grainger@gmail.com'
+BOT_ADAPTER='shell'
+BOT_RELEASE='1'
+BOT_OWNER='Bot Wrangler <bot.wrangler@example.com>'
+BOT_NAME='Hubot'
+BOT_DESCRIPTION="Delightfully aware robot"
