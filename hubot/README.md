@@ -1,0 +1,1 @@
+Moved to [liger78/hubot-packager](https://github.com/liger1978/hubot-packager).
