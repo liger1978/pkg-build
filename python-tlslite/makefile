@@ -1,4 +1,3 @@
-# Package packer for el7.
 PKG_NAME=tlslite
 
 .PHONY: package
